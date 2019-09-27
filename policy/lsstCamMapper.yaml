@@ -79,6 +79,22 @@ exposures:
 
 
 calibrations:
+  qe_curve:
+    columns:
+    - detector
+    - calibDate
+    level: Ccd
+    persistable: BaseCatalog
+    python: lsst.meas.algorithms.simple_curve.Curve
+    refCols:
+    - visit
+    reference: raw_visit
+    storage: FitsCatalogStorage
+    tables: qe_curve
+    template: qe_curve/%(calibDate)s/qe_curve-%(calibDate)s-%(detectorName)s.fits
+    validEndName: validEnd
+    validRange: true
+    validStartName: validStart
   defects:
     columns:
     - ccd
